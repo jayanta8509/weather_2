@@ -27,7 +27,7 @@ def get_weather_info(city):
         return "Failed to retrieve weather information. Please try again."
 
 # Streamlit UI
-st.title("Google Weather App")
+st.title("Weather App")
 
 city = st.text_input("Enter the city:")
 if st.button("Get Weather"):
