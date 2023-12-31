@@ -18,7 +18,16 @@ def get_weather_info(city):
             weather_info = weather_info_tag.get_text()
             
             if weather_info:
-                return weather_info
+                #Remove the non-numeric characters from the string
+                numeric_part = ''.join(c for c in weather_info if c.isdigit() or c == '.')
+                #convert float
+                temperature = float(numeric_part)
+                #convert Celsius to Fahrenheit 
+                fahrenheit = (temperature * 9/5) + 32
+                #convert Fahrenheit to Celsius
+                celsius = (fahrenheit - 32) * 5/9
+
+                return celsius
             else:
                 return "No weather information found."
         else:
@@ -32,4 +41,4 @@ st.title("Weather App")
 city = st.text_input("Enter the city:")
 if st.button("Get Weather"):
     weather_result = get_weather_info(city)
-    st.success(f"The weather in {city} is {weather_result}")
+    st.success(f"The weather in {city} is {weather_result} °C")
