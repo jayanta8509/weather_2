@@ -29,7 +29,7 @@ def get_weather_info(city):
 # Streamlit UI
 st.title("Google Weather App")
 
-city = st.text_input("Enter the city:", "New York")
+city = st.text_input("Enter the city:")
 if st.button("Get Weather"):
     weather_result = get_weather_info(city)
     st.success(f"The weather in {city} is {weather_result}")
